@@ -13,7 +13,7 @@ adjacency_list = np.array([[0, 1, 2, 3, 2],
                            [2, 2, 2, 4, 0]])
 
 # TEST CASE - 2
-# adjacency_list = np.array([[0,0,0,1,1,0,0,0],
+#adjacency_list = np.array([[0,0,0,1,1,0,0,0],
 #                            [0,0,0,0,1,1,0,0],
 #                            [0,0,0,0,0,1,0,0],
 #                            [1,0,0,0,0,0,1,0],
@@ -268,35 +268,27 @@ def cost(polish_exp, dim_list, rotate):
 #dim_list = [[6, 4], [4, 4], [4, 3], [4, 4], [3, 4], [4, 4]]#, [8, 8], [6, 4], [3, 4], [6, 6], [5, 6], [6, 3], [3, 3],
 #           [4, 4]]
 output = open('Output.txt', 'w')
+dim_list=[[8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [6, 4], [6, 4], [6, 4], [6, 4], [6, 4], [6, 4], [6, 4], [6, 4], [6, 4], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5]]
 
 # Enable if random dimensions want to be assigned
-dim_list = [[8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [8, 5], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [3, 2], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [4, 3], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [5, 4], [6, 4], [6, 4], [6, 4], [6, 4], [6, 4], [6, 4], [6, 4], [6, 4], [6, 4], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5], [6, 5]]
-#for i in range(0, len(adjacency_list)):
+# dim_list = []
+# for i in range(0, len(adjacency_list)):
 #     x = []
 #     x.append(random.randint(1, 10))
 #     x.append(random.randint(1, 10))
 #     dim_list.append(x)
-
+#
 polish_exp = []
+for j in range(1,20):
+	for i in range(len(adjacency_list)*(j-1)/19+1 , int(len(adjacency_list)*j/19+1)):
+    		polish_exp.append(str(i))
+	for i in range(0, len(adjacency_list)/19 - 1):
+    		if random.uniform(0, 1) < 0.5:
+        		polish_exp.append("V")
+    	else:
+        	polish_exp.append("H")
+print(polish_exp)
 
-
-
-
-
-for i in range(1, len(adjacency_list) + 1 - int(len(adjacency_list)/2)):
-    polish_exp.append(str(i))
-for i in range(0, len(adjacency_list) - 1 - int(len(adjacency_list)/2)):
-    if random.uniform(0, 1) < 0.5:
-        polish_exp.append("V")
-    else:
-        polish_exp.append("H")
-for i in range(len(adjacency_list) + 1 - int(len(adjacency_list)/2), len(adjacency_list) + 1):
-    polish_exp.append(str(i))
-for i in range(len(adjacency_list) - 1 - int(len(adjacency_list)/2), len(adjacency_list) - 1):
-    if random.uniform(0, 1) < 0.5:
-        polish_exp.append("V")
-    else:
-        polish_exp.append("H")
 
 
 extra_width = []
@@ -505,7 +497,10 @@ np.save("dimensions", np.array(dimensions))
 np.save("min_dim", np.array(min_dim))
 np.save("adjacency_list", np.array(adjacency_list))
 
+window_dim=np.max(coordinates,axis=0)
 turtle.ht()
+turtle.Screen().setup(width=1.0,height=1.0)
+turtle.setworldcoordinates(1,-1,window_dim[0]+100,window_dim[1]+100)
 
 for i in range(0, len(adjacency_list)):
     centre_x = coordinates[i][0]
@@ -520,5 +515,6 @@ for i in range(0, len(adjacency_list)):
     turtle.goto(centre_x + width / 2, centre_y - height / 2)
     turtle.goto(centre_x + width / 2, centre_y + height / 2)
 ts = turtle.getscreen()
+turtle.resizemode("auto")
 ts.getcanvas().postscript(file="duck.eps")
 turtle.done()
