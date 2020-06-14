@@ -7,13 +7,13 @@ import random
 import copy
 
 coordinates = np.load("./coordinates.npy")
-coordinates *= 2
+#coordinates *= 2
 coordinates.tolist()
 dimensions = np.load("./dimensions.npy")
-dimensions *= 2
+#dimensions *= 2
 dimensions.tolist()
 min_dim = np.load("./min_dim.npy")
-min_dim *= 2
+#min_dim *= 2
 min_dim.tolist()
 adjacency_list = np.load("./adjacency_list.npy")
 adjacency_list.tolist()
