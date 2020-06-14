@@ -624,15 +624,16 @@ def main():
         new_npe, final_area, final_cost, time_taken = simulatedAnnealing(npe,cell_dict,adj)
         plotPlacement(new_npe,cell_dict,adj)
         print("***** RESULTS *****\n")
-        print("Initial Area  : " + str(initial_area))
+        print("Initial PE: "), 
+        printNPE(npe)
+        print("\nFinal PE: "), 
+        printNPE(new_npe)
+        print("\nInitial Area  : " + str(initial_area))
         print("Initial Cost  : " + str(initial_cost))
         print("Final Area  : " + str(initial_area))
         print("Final Cost  : " + str(initial_cost))
         
-        print("Initial PE: "), 
-        printNPE(npe)
-        print("Final PE: "), 
-        printNPE(new_npe)
+
 
     else:
         print("ERROR: Incorrect number of arguments!")
