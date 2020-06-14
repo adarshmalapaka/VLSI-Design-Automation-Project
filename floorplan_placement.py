@@ -316,8 +316,11 @@ def simulatedAnnealing(s,cell_dict,adj):
     s_best = s[:]
     s_temp = s[:]
     T0 = initialTemp(s,adj)
+    print("Stopping Temperature: " + str(0.01))
     tic = time.clock()
     N_iter = 2*N
+    print("# iterations per temperature: " + str(N_iter))
+    print("Lambda (for Cost): " + str(lamda))
     T = T0
     print("\n..... RUNNING SIMULATED ANNEALING PLACEMENT .....\n")
     while (T > 0.01):
@@ -630,8 +633,9 @@ def main():
         printNPE(new_npe)
         print("\nInitial Area  : " + str(initial_area))
         print("Initial Cost  : " + str(initial_cost))
-        print("Final Area  : " + str(initial_area))
-        print("Final Cost  : " + str(initial_cost))
+        print("Final Area    : " + str(final_area))
+        print("Final Cost    : " + str(final_cost))
+        print("Time Taken    : " + str(time_taken) + " seconds")
         
 
 
