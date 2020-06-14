@@ -141,7 +141,7 @@ def generate_adjacency_matrix(isc_data, nodes):
 
     return adjacency_matrix
 
-def generateNPE(cell_dict,order):
+def generateNPE(order):
 
     N = 133
     npe = []
@@ -311,7 +311,7 @@ def initialTemp(s,adj):
     return T0
 
 
-def simulatedAnnealing(s,cell_dict,adj):
+def simulatedAnnealing(s,adj):
     global N
     s_best = s[:]
     s_temp = s[:]
@@ -369,10 +369,7 @@ def simulatedAnnealing(s,cell_dict,adj):
     time_taken = time.clock() - tic
     s = s_best[:]
     final_area,_ ,_ ,_, final_cost = area(s,adj)
-
-    min_dim = [area(s,adj)[1][(2*N)-1-1], area(s,adj)[2][(2*N)-1-1]]
-    np.save("min_dim2", np.array(min_dim))
-    
+  
     return s, final_area, final_cost, time_taken
 
 
@@ -500,8 +497,6 @@ def plotPlacement(s,cell_dict,adj):
     s1 = s[:]
     _,new_width,new_height, module,_ = area(s1,adj)
     
-    x_offset = 10
-    y_offset = 10
     x, y = getXY(new_width, new_height, module)
     _, ax = plt.subplots(1) 
 
@@ -524,7 +519,10 @@ def plotPlacement(s,cell_dict,adj):
         rect= matplotlib.patches.Rectangle((x[i],y[i]), new_width[i], new_height[i], facecolor =cell_dict[i+1][4], linewidth=2.0) 
         plt.text(x_center,y_center,str(i+1))
         ax.add_patch(rect) 
-
+    
+    xmax = x.index(max(x))
+    ymax = y.index(max(y))
+    min_dim = [max(x) + new_width[xmax], max(y) + new_height[ymax]] 
     max_x = max(x)+max(width)+10
     max_y = max(y)+max(height)+10
     plt.xlim([0, max_x])
@@ -536,6 +534,7 @@ def plotPlacement(s,cell_dict,adj):
     plt.grid()   
     plt.show() 
 
+    np.save("min_dim2", np.array(min_dim))
     np.save("coordinates2", np.array(coordinates))
     np.save("dimensions2", np.array(dimensions))
 
@@ -616,7 +615,7 @@ def main():
         cell_dict, width, height = parse_cell(parsed_data, adj)
         new_width = width[:]
         new_height = height[:]
-        npe = generateNPE(cell_dict,'H')
+        npe = generateNPE('H')
         print("***** INITIAL POLISH EXPRESSION GENERATED *****\n")
 
         N = len(cell_dict)
